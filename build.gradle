@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //implementation 'junit:junit:4.13.1'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    //testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.7.2'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.11.0'
+    implementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.11.0'
+    // https://mvnrepository.com/artifact/com.aventstack/extentreports-cucumber4-adapter
+    //implementation group: 'com.aventstack', name: 'extentreports-cucumber4-adapter', version: '1.0.7'
+    // https://mvnrepository.com/artifact/com.aventstack/extentreports
+    //implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.9'
+
+
+
+}
+
+test{
+    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+}
